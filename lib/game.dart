@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:skribbl_game/choosing_avatar.dart';
 import 'colors_of_the_game.dart';
@@ -36,8 +37,8 @@ class _GameState extends State<Game> {
             child: TextField(
               controller: _controller,
               style: const TextStyle(
-                  fontFamily: 'work_of_fortress',
-                ), 
+                fontFamily: 'work_of_fortress',
+              ),
               decoration: const InputDecoration(
                 hintText: "Nickname",
                 fillColor: color,
@@ -55,17 +56,19 @@ class _GameState extends State<Game> {
             onPressed: () {
               setState(() {
                 userName = _controller.text;
-                
               });
               //MaterialPageRoute(builder: (context) => gotoPage)
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ChoosingAvatar(userName)));
-              
+               Navigator.push(context, MaterialPageRoute(builder: (context)=>ChoosingAvatar(userName)));
+              print("i have been pressed ");
             },
             color: const Color.fromARGB(255, 255, 199, 0),
-            child:const  Text("➡️",style: TextStyle(
-              fontSize: 20,
-              fontFamily:'work_of_fortress', 
-            ),),
+            child: const Text(
+              "➡️",
+              style: TextStyle(
+                fontSize: 20,
+                fontFamily: 'work_of_fortress',
+              ),
+            ),
           )
         ],
       ),

@@ -21,7 +21,7 @@ TextField(
             )*/
 class RoomKey extends StatefulWidget {
   String userName;
-  Avatar avatar;
+  Image avatar;
   RoomKey(this.userName,this.avatar,{Key? key}) : super(key: key);
 
   @override
