@@ -28,7 +28,7 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //choosing an avatar
-          Container(
+          Expanded(
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
@@ -110,17 +110,20 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
               },
             ),
           ),
-          Container(child: Row(
-            children: [
-              // Wee need to add
-              ElevatedButton(
-                onPressed: () {
-                  print("aaaa");
-                },
-                child: Text("${numberOfRound}"),
-              ),
-            ],
-          ),
+          Container(
+            child: Row(
+              children: [
+                // Wee need to add
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      numberOfRound++;
+                    });
+                  },
+                  child: Text("${numberOfRound}"),
+                ),
+              ],
+            ),
           ),
         ],
       ),
