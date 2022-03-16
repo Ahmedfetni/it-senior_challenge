@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors_of_the_game.dart';
 
 class IconFont extends StatelessWidget {
   final double textSize;
@@ -9,7 +10,7 @@ class IconFont extends StatelessWidget {
     return  Text(
       "SKRIBLE GAME",
       style: TextStyle(
-        color: const Color.fromARGB(255, 255, 199, 0),
+        color: ColorsOfTheGame.yellow,
         fontSize: textSize,
         fontFamily: 'work_of_fortress',
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'progress_bar.dart';
 import 'icon_font.dart';
+import 'colors_of_the_game.dart';
 
 class SplashScreen extends StatelessWidget {
   int duration;
@@ -19,7 +20,7 @@ class SplashScreen extends StatelessWidget {
     });
     return Scaffold(
       body: Container(
-        color: const Color.fromARGB(255, 164, 187, 187),
+        color: ColorsOfTheGame.background,
         child: Stack(
           children: [
             Column(

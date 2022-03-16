@@ -33,7 +33,11 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
               scrollDirection: Axis.horizontal,
               children: [
                 Container(
+                  color: ColorsOfTheGame.background,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: ColorsOfTheGame.background // Background color
+                        ),
                     child: Avatar.boy,
                     onPressed: () {
                       setState(() {
@@ -45,6 +49,9 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
                 Container(
                   child: ElevatedButton(
                     child: Avatar.girl,
+                    style: ElevatedButton.styleFrom(
+                        primary: ColorsOfTheGame.background // Background color
+                        ),
                     onPressed: () {
                       setState(() {
                         avatar = Avatar.girl;
@@ -53,7 +60,11 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
                   ),
                 ),
                 Container(
+                  color: ColorsOfTheGame.background,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: ColorsOfTheGame.background // Background color
+                        ),
                     child: Avatar.theRock,
                     onPressed: () {
                       setState(() {
@@ -66,16 +77,33 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
             ),
           ),
           //userName
-          Container(),
+          const SizedBox(
+            height: 40,
+          ),
+          Container(
+            child: Text(
+              theUserName,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 250, 241, 172),
+                fontFamily: 'work_of_fortress',
+                fontSize: 30,
+              ),
+            ),
+          ),
           //Room Code
           Container(
+            color: ColorsOfTheGame.background,
             margin: const EdgeInsets.all(20),
             foregroundDecoration: const BoxDecoration(shape: BoxShape.circle),
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromARGB(255, 250, 241, 172), // Background color
+              ),
               child: const Text(
                 "Room Code ",
                 style: TextStyle(
                   fontFamily: 'work_of_fortress',
+                  color: Colors.black,
                   fontSize: 30,
                 ),
               ),
@@ -83,21 +111,26 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => RoomKey(theUserName, avatar),
+                    builder: (context) => RoomKey(theUserName, avatar,numberOfRound),
                   ),
                 );
               },
             ),
           ),
           Container(
+            color: ColorsOfTheGame.background,
             margin: const EdgeInsets.all(20),
             foregroundDecoration: const BoxDecoration(shape: BoxShape.circle),
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary:const  Color.fromARGB(255, 250, 241, 172), // Background color
+              ),
               child: const Text(
                 "Create Room",
                 style: TextStyle(
                   fontFamily: 'work_of_fortress',
                   fontSize: 30,
+                  color: Colors.black,
                 ),
               ),
               onPressed: () {
@@ -111,26 +144,83 @@ class _ChoosingAvatarState extends State<ChoosingAvatar> {
             ),
           ),
           Container(
+            color: ColorsOfTheGame.background,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // Wee need to add
                 ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      numberOfRound++;
-                    });
+                    if (numberOfRound > 0) {
+                      setState(() {
+                        numberOfRound--;
+                      });
+                    }
                   },
-                  child: Text("${numberOfRound}"),
+                  child: const Text(
+                    "-",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'work_of_fortress',
+                      fontSize: 30,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary:
+                        Color.fromARGB(255, 250, 241, 172), // Background color
+                  ),
+                ),
+                const SizedBox(
+                  width: 40,
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  height: 60,
+                  width: 60,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 250, 241, 172),
+                  ),
+                  child: Text("$numberOfRound",
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'work_of_fortress',
+                        fontSize: 40,
+                      )),
+                ),
+                const SizedBox(
+                  width: 40,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (numberOfRound < 4) {
+                      setState(() {
+                        numberOfRound++;
+                      });
+                    }
+                  },
+                  child: const Text(
+                    "+",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'work_of_fortress',
+                      fontSize: 30,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary:
+                        Color.fromARGB(255, 250, 241, 172), // Background color
+                  ),
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 40,
           ),
         ],
       ),
     );
   }
 }
-
-Widget buildCard() => Container(
-      color: Colors.red,
-    );

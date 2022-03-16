@@ -29,7 +29,7 @@ class _GameState extends State<Game> {
             child: const IconFont(35),
           ),
           const SizedBox(
-            height: 40,
+            height: 80,
           ),
           Container(
             margin: const EdgeInsets.all(20),
@@ -59,7 +59,7 @@ class _GameState extends State<Game> {
               });
               //MaterialPageRoute(builder: (context) => gotoPage)
                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChoosingAvatar(userName)));
-              print("i have been pressed ");
+              
             },
             color: const Color.fromARGB(255, 255, 199, 0),
             child: const Text(
